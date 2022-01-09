@@ -20,7 +20,7 @@ namespace my_books.Data
                         Title = "1st Book Title",
                         Description = "1st Book Description",
                         IsRead = true,
-                        DataRead = DateTime.Now.AddDays(-10),
+                        DateRead = DateTime.Now.AddDays(-10),
                         Rate = 4,
                         Genre="Biography",
                         Author="First Author",

@@ -20,7 +20,7 @@ namespace my_books.Data.Services
                 Title = book.Title,
                 Description = book.Description,
                 IsRead = book.IsRead,
-                DataRead = book.IsRead ? book.DataRead.Value : null,
+                DateRead = book.IsRead ? book.DateRead.Value : null,
                 Rate = book.IsRead ? book.Rate : null,
                 Genre = book.Genre,
                 Author = book.Author,
@@ -40,7 +40,7 @@ namespace my_books.Data.Services
                 _book.Title = book.Title;
                 _book.Description = book.Description;
                 _book.IsRead = book.IsRead;
-                _book.DataRead = book.IsRead ? book.DataRead.Value : null;
+                _book.DateRead = book.IsRead ? book.DateRead.Value : null;
                 _book.Rate = book.IsRead ? book.Rate : null;
                 _book.Genre = book.Genre;
                 _book.Author = book.Author;

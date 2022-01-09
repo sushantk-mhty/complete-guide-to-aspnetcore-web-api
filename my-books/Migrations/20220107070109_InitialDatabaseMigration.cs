@@ -16,7 +16,7 @@ namespace my_books.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsRead = table.Column<bool>(type: "bit", nullable: false),
-                    DataRead = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateRead = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Rate = table.Column<int>(type: "int", nullable: true),
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
