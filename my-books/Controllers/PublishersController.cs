@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using my_books.Data.Models.ViewModels;
 using my_books.Data.Services;
+using System;
 
 namespace my_books.Controllers
 {
@@ -10,9 +12,11 @@ namespace my_books.Controllers
     public class PublishersController : ControllerBase
     {
         private PublishersService _publishersService;
-        public PublishersController(PublishersService publishersService)
+        private readonly ILogger<PublishersController> _logger;
+        public PublishersController(PublishersService publishersService, ILogger<PublishersController> logger)
         {
             _publishersService = publishersService;
+            this._logger = logger;
         }
         [HttpPost("add-publisher")]
         public IActionResult AddPublisher([FromBody] PublisherVM publisher)
@@ -23,8 +27,17 @@ namespace my_books.Controllers
         [HttpGet("get-publisher-books-with-authors/{id}")]
         public IActionResult GetPublisherBooksWithAuthors(int id)
         {
-          var response= _publishersService.GetPublisherData(id);
-            return Ok(response);
+            throw new Exception("This is an ecxeptions thrown from GetPublisherBooksWithAuthors()");
+            try
+            {
+                _logger.LogInformation("This is just a log in GetPublisherBooksWithAuthors ");
+                var response = _publishersService.GetPublisherData(id);
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Sorry, we could not load the publishers");
+            }
         }
         [HttpDelete("delete-publisher-by-id/{id}")]
         public IActionResult DeletePublisherById(int id)
